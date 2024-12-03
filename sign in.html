@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500&family=Fraunces:opsz,wght@9..144,800&display=swap" rel="stylesheet">
+    <script>
+         tailwind.config = {
+          theme: {
+            extend: {
+              fontFamily: { 'Barlow': ['Fraunces', 'Barlow']},
+              colors: {
+                primary : "#83888F",
+                secondary: "#0E8784",
+                gray: "#333D4B",
+                bg: "#FAF8F6",
+                white: "#FEFCF7"
+              },
+            },
+          },
+        };
+    </script>
+    <title>Sign in</title>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+          const passwordInput = document.getElementById('password');
+          const togglePasswordButton = document.querySelector('button[aria-label="Toggle password visibility"]');
+      
+          togglePasswordButton.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.classList.toggle('active');
+          });
+        });
+      
+
+        document.querySelector('form').addEventListener('submit', function(event) {
+          const emailInput = document.getElementById('email');
+          const passwordInput = document.getElementById('password');
+      
+
+          if (!emailInput.value || !passwordInput.value) {
+            event.preventDefault(); 
+            alert('Veuillez remplir tous les champs.');
+          }
+        });
+      </script>
+</head>
+<body>
+    <div class="overflow-hidden pl-14 bg-gray-100 max-md:pl-5">
+        <div class="flex gap-5 max-md:flex-col">
+          <div class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+            <div class="flex flex-col items-center mt-10 w-full max-md:max-w-full">
+              <div class="flex flex-wrap gap-5 justify-between self-stretch w-full max-md:max-w-full">
+                <div class="flex gap-3 text-lg font-medium leading-10 text-black">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/793fa0cdf52e4850d83b442142e004ec6c901677eee554113b93a9122a3569b8?placeholderIfAbsent=true&apiKey=0b69390d977a4a878ed863a38b2aa8dd" class="object-contain shrink-0 my-auto aspect-square w-[29px]" alt="Company Logo" />
+                  <div>Logo here</div>
+                </div>
+                <div class="flex gap-2 my-auto text-sm leading-none">
+                  <div class="grow font-light text-black">Don't have an account?</div>
+                  <a href="/sign up.html" class="font-medium text-green-500" tabindex="0">Sign up!</a>
+                </div>
+              </div>
+              <h1 class="mt-32 text-4xl font-semibold leading-none text-black max-md:mt-10">Welcome Back</h1>
+              <p class="mt-1.5 text-lg leading-loose text-black">Login into your account</p>
+              
+              <form class="flex flex-col items-center w-full">
+                <div class="relative w-[402px] max-w-full">
+                  <label for="email" class="sr-only">Email</label>
+                  <input type="email" id="email" name="email" class="px-6 py-7 mt-12 w-full text-sm leading-none bg-white rounded-xl border border-solid border-zinc-300 shadow-[0px_5px_12px_rgba(0,0,0,0.05)] text-zinc-600 max-md:mt-10" required aria-label="Email" />
+                </div>
+      
+                <div class="relative w-[402px] max-w-full">
+                  <label for="password" class="sr-only">Password</label>
+                  <div class="relative">
+                    <input type="password" id="password" name="password" class="px-6 py-7 mt-9 w-full text-sm leading-none bg-white rounded-xl border border-solid border-zinc-300 shadow-[0px_5px_12px_rgba(0,0,0,0.05)] text-zinc-600" required aria-label="Password" />
+                    <button type="button" class="absolute right-6 top-1/2 transform -translate-y-1/2" aria-label="Toggle password visibility">
+                      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/8047f9eb7d9711a3f33aec13ab7e056e3e4c2ae5cb9dc977e9acd2f0342489cb?placeholderIfAbsent=true&apiKey=0b69390d977a4a878ed863a38b2aa8dd" class="object-contain w-5 aspect-square" alt="" />
+                    </button>
+                  </div>
+                </div>
+      
+                <div class="flex gap-10 mt-5 max-w-full w-[400px]">
+                  <div class="flex flex-1 gap-2">
+                    <label class="flex items-center gap-2 cursor-pointer">
+                      <input type="checkbox" class="sr-only" id="remember" name="remember" />
+                      <div class="flex flex-col justify-center items-start p-0.5 bg-gray-200 border border-solid border-stone-300 rounded-[37px] w-5 h-5">
+                        <div class="flex shrink-0 w-4 h-4 bg-white rounded-xl shadow-sm"></div>
+                      </div>
+                      <span class="text-xs tracking-wide leading-loose text-zinc-900">Remember me</span>
+                    </label>
+                  </div>
+                  <a href="/reset password.html" class="my-auto text-sm font-light leading-none text-red-600" tabindex="0">Recover Password?</a>
+                  <!-- <a href="/forget password.html" class="my-auto text-sm font-light leading-none text-red-600" tabindex="0">forget password?</a> -->
+                </div>
+                <a href="/forget password.html" class="my-auto text-sm mt-[-19px] font-light leading-none text-red-600" tabindex="0">forget password?</a>
+                <button type="submit" class="px-16 py-5 mt-9 max-w-full text-lg leading-none rounded-xl border border-solid border-zinc-600 text-zinc-600 w-[400px] max-md:px-5">Log In</button>
+              </form>
+            </div>
+          </div>
+      
+          <div class="flex flex-col mt-[-100px] ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+            <div class="flex relative flex-col grow px-9 pb-12 min-h-[900px] pt-[581px] max-md:px-5 max-md:pt-24 max-md:mt-10 max-md:max-w-full">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/8e92fd0dc1b7de91c719e80b1e9591973cfebc0342ddb403eba59e600420086c?placeholderIfAbsent=true&apiKey=0b69390d977a4a878ed863a38b2aa8dd" class="object-cover absolute inset-0 size-full" alt="Background decorative image" />
+              <div class="flex relative flex-col px-9 py-12 w-full rounded-xl bg-blend-normal bg-red-50 bg-opacity-10 max-md:px-5 max-md:max-w-full">
+                <div class="flex gap-3 self-start px-4 py-3 text-sm leading-none text-black bg-green-500 rounded-xl">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/df2e1f7537e01a68f46320116766b0888c849d4d708bd9c70fbbc1431bc3f1f5?placeholderIfAbsent=true&apiKey=0b69390d977a4a878ed863a38b2aa8dd" class="object-contain shrink-0 aspect-square w-[22px]" alt="" />
+                  <div class="my-auto basis-auto">Top Notch Stock Resources</div>
+                </div>
+                <div class="mt-6 text-xl leading-8 text-white max-md:max-w-full">
+                  Today, we create innovative solutions to the challenges that consumers face in both their everyday lives and events.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
